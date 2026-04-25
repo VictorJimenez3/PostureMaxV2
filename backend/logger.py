@@ -58,7 +58,7 @@ class SessionLogger:
         duration_s = (datetime.now(timezone.utc) - self._start_time).total_seconds()
         good_pct   = (self._good / self._total * 100.0) if self._total else 0.0
         state.update_session(self._session_id, self._start_time.isoformat(),
-                             duration_s, float(self._good), good_pct, good_pct)
+                             duration_s, float(self._good) * LOG_INTERVAL_S, good_pct, good_pct)
 
     def end_session(self) -> Optional[str]:
         if self._session_id is None:
@@ -70,7 +70,7 @@ class SessionLogger:
         avg_roll   = (self._roll_sum  / self._total) if self._total else 0.0
         finalize_session(
             self._conn, self._session_id, now_dt.isoformat(),
-            duration_s, float(self._good), good_pct,
+            duration_s, float(self._good) * LOG_INTERVAL_S, good_pct,
             avg_pitch, avg_roll, self._max_dev, good_pct,
         )
         sid = self._session_id
