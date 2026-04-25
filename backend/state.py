@@ -39,6 +39,7 @@ def get_session_state() -> dict:
     with _lock:
         return {
             "session_id": _s.session_id,
+            "session_start": _s.session_start,
             "duration_s": _s.session_duration_s,
             "good_s":     _s.session_good_s,
             "good_pct":   _s.session_good_pct,
@@ -74,6 +75,7 @@ def set_disconnected() -> None:
     with _lock:
         _s.connected     = False
         _s.posture_state = "unknown"
+        _s.session_id    = None
 
 def request_zero() -> None:
     with _lock:
