@@ -1,4 +1,5 @@
 import asyncio
+import logging
 import struct
 import time
 
@@ -12,8 +13,7 @@ from backend.classifier import classify
 import backend.state as state
 
 class BLEClient:
-    def __init__(self, conn, logger):
-        self._conn   = conn
+    def __init__(self, logger):
         self._logger = logger
         self._client = None
         self._connect_time: float = 0.0
@@ -82,8 +82,8 @@ class BLEClient:
                 async with BleakClient(device) as client:
                     self._client       = client
                     self._connect_time = time.monotonic()
-                    self._logger.start_session()
                     await client.start_notify(NOTIFY_UUID, self._on_notify)
+                    self._logger.start_session()
 
                     while client.is_connected:
                         if state.consume_zero_trigger():
@@ -91,11 +91,15 @@ class BLEClient:
                         await asyncio.sleep(0.05)
 
             except Exception:
-                pass  # reconnect silently
+                logging.exception("BLE connection error")
             finally:
                 state.set_disconnected()
                 if self._logger._session_id is not None:
                     self._logger.end_session()
                 self._client = None
+                self._zeroing = False
+                self._zero_count = 0
+                self._zero_pitch = 0.0
+                self._zero_roll = 0.0
 
             await asyncio.sleep(2.0)
