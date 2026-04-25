@@ -1,2 +1,126 @@
 <!DOCTYPE html>
-<html><head><title>PostureMax</title></head><body>PostureMax</body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PostureMax</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">PostureMax</div>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-panel="live">Live Monitor</button>
+        <button class="nav-item" data-panel="history">Session History</button>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+
+      <!-- Top Bar -->
+      <header class="topbar">
+        <span class="topbar-title" id="panel-title">Live Monitor</span>
+        <div id="connection-banner" class="connection-banner disconnected">Disconnected</div>
+      </header>
+
+      <!-- Content -->
+      <main class="content">
+
+        <!-- Live Monitor Panel -->
+        <div id="panel-live" class="panel">
+
+          <!-- Hero Card -->
+          <div id="hero-card" class="hero-card state-unknown">
+            <div class="hero-label" id="hero-label">—</div>
+            <div class="hero-sub">Current Posture</div>
+          </div>
+
+          <div class="card-row">
+
+            <!-- Pitch Gauge -->
+            <div class="card gauge-card">
+              <div class="card-title">Forward / Backward Flex</div>
+              <div class="gauge-wrap">
+                <div class="gauge-track">
+                  <div class="gauge-fill" id="gauge-pitch"></div>
+                  <div class="gauge-center"></div>
+                </div>
+                <div class="gauge-labels">
+                  <span>-30°</span><span>0°</span><span>+30°</span>
+                </div>
+              </div>
+              <div class="gauge-value" id="val-pitch">0.0°</div>
+            </div>
+
+            <!-- Roll Gauge -->
+            <div class="card gauge-card">
+              <div class="card-title">Lateral Lean</div>
+              <div class="gauge-wrap">
+                <div class="gauge-track">
+                  <div class="gauge-fill" id="gauge-roll"></div>
+                  <div class="gauge-center"></div>
+                </div>
+                <div class="gauge-labels">
+                  <span>-30°</span><span>0°</span><span>+30°</span>
+                </div>
+              </div>
+              <div class="gauge-value" id="val-roll">0.0°</div>
+            </div>
+
+            <!-- Session Stats -->
+            <div class="card stats-card">
+              <div class="card-title">Current Session</div>
+              <div class="stat-row">
+                <span class="stat-label">Duration</span>
+                <span class="stat-val" id="stat-duration">—</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-label">Good Posture</span>
+                <span class="stat-val" id="stat-good-pct">—</span>
+              </div>
+              <div class="stat-row">
+                <span class="stat-label">Score</span>
+                <span class="stat-val" id="stat-score">—</span>
+              </div>
+              <button class="btn-outline" id="btn-zero">Re-zero Sensors</button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Session History Panel -->
+        <div id="panel-history" class="panel hidden">
+          <div class="card">
+            <div class="card-title">Posture Score Over Time</div>
+            <canvas id="chart-score" height="80"></canvas>
+          </div>
+          <div class="card">
+            <div class="card-title">Recent Sessions</div>
+            <table class="session-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Duration</th>
+                  <th>Score</th>
+                  <th>Good %</th>
+                </tr>
+              </thead>
+              <tbody id="session-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
