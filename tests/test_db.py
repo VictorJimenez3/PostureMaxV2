@@ -1,4 +1,3 @@
-import os, sqlite3, tempfile
 import pytest
 from backend.db import (
     get_conn, init_db, create_session, insert_reading,
@@ -26,6 +25,9 @@ def test_create_and_get_session(conn):
     assert row["id"] == "s1"
     assert row["start_time"] == "2026-04-25T10:00:00"
     assert row["end_time"] is None
+
+def test_get_session_returns_none_for_missing(conn):
+    assert get_session(conn, "does_not_exist") is None
 
 def test_insert_reading(conn):
     create_session(conn, "s1", "2026-04-25T10:00:00")
