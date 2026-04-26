@@ -5,30 +5,41 @@
 #include <BLEUtils.h>
 #include <BLE2902.h>
 
-// UUIDs must match backend/config.py
+// ── Identity ──────────────────────────────────────────────────────────────
+// Set IS_UPPER to 1 when flashing the thoracic (upper back) module.
+// Set IS_UPPER to 0 when flashing the lumbar (lower back) module.
+#define IS_UPPER 1
+
+#if IS_UPPER
+  #define DEVICE_NAME "PostureMax-Upper"
+#else
+  #define DEVICE_NAME "PostureMax-Lower"
+#endif
+
+// ── UUIDs (must match backend/config.py) ─────────────────────────────────
 #define SERVICE_UUID "12345678-1234-1234-1234-123456789abc"
 #define NOTIFY_UUID  "12345678-1234-1234-1234-123456789abd"
 #define ZERO_UUID    "12345678-1234-1234-1234-123456789abe"
 
-#define ADDR_UPPER 0x68
-#define ADDR_LOWER 0x69
+// ── Sensor ────────────────────────────────────────────────────────────────
+#define ADDR_IMU 0x68   // default MPU6050 address (AD0 floating or grounded)
 
+// ── Timing ────────────────────────────────────────────────────────────────
 #define LOOP_HZ      100
 #define LOOP_MS      (1000 / LOOP_HZ)
-#define SETTLE_MS    2000    // discard first 2 s of filter output
-#define ZERO_DUR_MS  5000    // 5 s zero capture window
+#define SETTLE_MS    2000
+#define ZERO_DUR_MS  5000
 
-Madgwick filterUpper, filterLower;
+Madgwick filter;
 
 BLECharacteristic* pNotifyChar = nullptr;
 BLECharacteristic* pZeroChar   = nullptr;
 bool deviceConnected = false;
 
-// Zero capture state
-bool         zeroing      = false;
+bool          zeroing     = false;
 unsigned long zeroStartMs = 0;
-float        zeroAccum[4] = {0, 0, 0, 0};  // upper_p, upper_r, lower_p, lower_r
-int          zeroSamples  = 0;
+float         zeroAccum[2] = {0, 0};   // pitch, roll
+int           zeroSamples  = 0;
 
 unsigned long bootMs = 0;
 
@@ -45,46 +56,42 @@ class ServerCB : public BLEServerCallbacks {
   }
 };
 
-// Triggered when backend writes 0x01 to ZERO_UUID
 class ZeroCB : public BLECharacteristicCallbacks {
   void onWrite(BLECharacteristic* c) override {
     std::string val = c->getValue();
     if (!val.empty() && (uint8_t)val[0] == 0x01) {
-      zeroing      = true;
-      zeroStartMs  = millis();
-      zeroAccum[0] = zeroAccum[1] = zeroAccum[2] = zeroAccum[3] = 0.0f;
-      zeroSamples  = 0;
+      zeroing       = true;
+      zeroStartMs   = millis();
+      zeroAccum[0]  = zeroAccum[1] = 0.0f;
+      zeroSamples   = 0;
       Serial.println("Zero capture started");
     }
   }
 };
 
 // ── MPU6050 helpers ────────────────────────────────────────────────────────
-static void initMPU(uint8_t addr) {
-  Wire.beginTransmission(addr);
-  Wire.write(0x6B);   // PWR_MGMT_1
-  Wire.write(0x00);   // clear sleep bit
+static void initMPU() {
+  Wire.beginTransmission(ADDR_IMU);
+  Wire.write(0x6B);
+  Wire.write(0x00);   // wake up
   Wire.endTransmission(true);
 }
 
-// Returns false on I2C error — caller should skip that frame silently
-static bool readMPU(uint8_t addr,
-                    float& ax, float& ay, float& az,
+static bool readMPU(float& ax, float& ay, float& az,
                     float& gx, float& gy, float& gz) {
-  Wire.beginTransmission(addr);
-  Wire.write(0x3B);   // ACCEL_XOUT_H
+  Wire.beginTransmission(ADDR_IMU);
+  Wire.write(0x3B);
   if (Wire.endTransmission(false) != 0) return false;
-  if (Wire.requestFrom(addr, (uint8_t)14) < 14) return false;
+  if (Wire.requestFrom(ADDR_IMU, (uint8_t)14) < 14) return false;
 
   int16_t raw[7];
   for (int i = 0; i < 7; i++)
     raw[i] = (int16_t)((Wire.read() << 8) | Wire.read());
 
-  // raw[3] is temperature — skip
-  ax = raw[0] / 16384.0f;   // ±2 g range
+  ax = raw[0] / 16384.0f;
   ay = raw[1] / 16384.0f;
   az = raw[2] / 16384.0f;
-  gx = raw[4] / 131.0f;    // ±250 °/s range
+  gx = raw[4] / 131.0f;
   gy = raw[5] / 131.0f;
   gz = raw[6] / 131.0f;
   return true;
@@ -96,24 +103,16 @@ void setup() {
   Wire.begin();
   delay(100);
 
-  // Verify both sensors are present and have distinct addresses
-  Wire.beginTransmission(ADDR_UPPER);
-  bool upperOk = (Wire.endTransmission() == 0);
-  Wire.beginTransmission(ADDR_LOWER);
-  bool lowerOk = (Wire.endTransmission() == 0);
-
-  if (!upperOk || !lowerOk) {
-    Serial.println("ERROR: one or both sensors not found — check I2C wiring");
+  Wire.beginTransmission(ADDR_IMU);
+  if (Wire.endTransmission() != 0) {
+    Serial.println("ERROR: MPU6050 not found — check I2C wiring");
     while (true) delay(1000);
   }
 
-  initMPU(ADDR_UPPER);
-  initMPU(ADDR_LOWER);
-  filterUpper.begin(LOOP_HZ);
-  filterLower.begin(LOOP_HZ);
+  initMPU();
+  filter.begin(LOOP_HZ);
 
-  // BLE setup
-  BLEDevice::init("PostureMax");
+  BLEDevice::init(DEVICE_NAME);
   BLEServer*  pServer  = BLEDevice::createServer();
   pServer->setCallbacks(new ServerCB());
 
@@ -132,41 +131,33 @@ void setup() {
   BLEAdvertising* pAdv = BLEDevice::getAdvertising();
   pAdv->addServiceUUID(SERVICE_UUID);
   pAdv->setScanResponse(false);
-  pAdv->setMinPreferred(0x06);   // request minimum connection interval
+  pAdv->setMinPreferred(0x06);
   BLEDevice::startAdvertising();
 
   bootMs = millis();
-  Serial.println("PostureMax ready — advertising as 'PostureMax'");
+  Serial.print("PostureMax ready — advertising as '");
+  Serial.print(DEVICE_NAME);
+  Serial.println("'");
 }
 
 // ── Main loop (100 Hz) ─────────────────────────────────────────────────────
 void loop() {
   unsigned long t0 = millis();
 
-  float ax1, ay1, az1, gx1, gy1, gz1;
-  float ax2, ay2, az2, gx2, gy2, gz2;
+  float ax, ay, az, gx, gy, gz;
+  bool ok = readMPU(ax, ay, az, gx, gy, gz);
 
-  bool ok1 = readMPU(ADDR_UPPER, ax1, ay1, az1, gx1, gy1, gz1);
-  bool ok2 = readMPU(ADDR_LOWER, ax2, ay2, az2, gx2, gy2, gz2);
-
-  // Always update filters when reads succeed (keeps them converged)
-  if (ok1) filterUpper.updateIMU(gx1, gy1, gz1, ax1, ay1, az1);
-  if (ok2) filterLower.updateIMU(gx2, gy2, gz2, ax2, ay2, az2);
+  if (ok) filter.updateIMU(gx, gy, gz, ax, ay, az);
 
   bool settled = (millis() - bootMs) >= SETTLE_MS;
 
-  if (settled && deviceConnected && ok1 && ok2) {
-    float upperPitch = filterUpper.getPitch();
-    float upperRoll  = filterUpper.getRoll();
-    float lowerPitch = filterLower.getPitch();
-    float lowerRoll  = filterLower.getRoll();
+  if (settled && deviceConnected && ok) {
+    float pitch = filter.getPitch();
+    float roll  = filter.getRoll();
 
-    // Accumulate zero reference
     if (zeroing) {
-      zeroAccum[0] += upperPitch;
-      zeroAccum[1] += upperRoll;
-      zeroAccum[2] += lowerPitch;
-      zeroAccum[3] += lowerRoll;
+      zeroAccum[0] += pitch;
+      zeroAccum[1] += roll;
       zeroSamples++;
 
       if (millis() - zeroStartMs >= ZERO_DUR_MS) {
@@ -175,13 +166,12 @@ void loop() {
       }
     }
 
-    // Pack as 4 little-endian floats and notify
-    float packet[4] = { upperPitch, upperRoll, lowerPitch, lowerRoll };
-    pNotifyChar->setValue(reinterpret_cast<uint8_t*>(packet), 16);
+    // Pack as 2 little-endian floats (8 bytes) and notify
+    float packet[2] = { pitch, roll };
+    pNotifyChar->setValue(reinterpret_cast<uint8_t*>(packet), 8);
     pNotifyChar->notify();
   }
 
-  // Pace loop to 100 Hz
   unsigned long elapsed = millis() - t0;
   if (elapsed < LOOP_MS) delay(LOOP_MS - elapsed);
 }
