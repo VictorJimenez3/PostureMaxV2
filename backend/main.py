@@ -3,14 +3,14 @@ import threading
 
 from backend.db import get_conn, init_db
 from backend.logger import SessionLogger
-from backend.ble_client import BLEClient
+from backend.ble_client import DualBLEManager
 from backend.api import create_app
 from backend.config import DB_PATH
 
 def _run_ble(loop: asyncio.AbstractEventLoop, logger) -> None:
     asyncio.set_event_loop(loop)
-    client = BLEClient(logger)
-    loop.run_until_complete(client.run())
+    manager = DualBLEManager(logger)
+    loop.run_until_complete(manager.run())
 
 def main() -> None:
     conn   = get_conn(DB_PATH)
