@@ -6,8 +6,7 @@
 #include <BLE2902.h>
 
 // ── Identity ──────────────────────────────────────────────────────────────
-// Set IS_UPPER to 1 when flashing the thoracic (upper back) module.
-// Set IS_UPPER to 0 when flashing the lumbar (lower back) module.
+// Set to 1 for upper module, 0 for lower module
 #define IS_UPPER 1
 
 #if IS_UPPER
@@ -21,10 +20,10 @@
 #define NOTIFY_UUID  "12345678-1234-1234-1234-123456789abd"
 #define ZERO_UUID    "12345678-1234-1234-1234-123456789abe"
 
-// ── Sensor ────────────────────────────────────────────────────────────────
-#define ADDR_IMU 0x68   // default MPU6050 address (AD0 floating or grounded)
+// ── Sensor ───────────────────────────────────────────────────────────────
+#define ADDR_IMU 0x68   // Only one sensor per module
 
-// ── Timing ────────────────────────────────────────────────────────────────
+// ── Timing ───────────────────────────────────────────────────────────────
 #define LOOP_HZ      100
 #define LOOP_MS      (1000 / LOOP_HZ)
 #define SETTLE_MS    2000
@@ -38,7 +37,7 @@ bool deviceConnected = false;
 
 bool          zeroing     = false;
 unsigned long zeroStartMs = 0;
-float         zeroAccum[2] = {0, 0};   // pitch, roll
+float         zeroAccum[2] = {0, 0};  // pitch, roll
 int           zeroSamples  = 0;
 
 unsigned long bootMs = 0;
@@ -58,8 +57,9 @@ class ServerCB : public BLEServerCallbacks {
 
 class ZeroCB : public BLECharacteristicCallbacks {
   void onWrite(BLECharacteristic* c) override {
-    std::string val = c->getValue();
-    if (!val.empty() && (uint8_t)val[0] == 0x01) {
+    // FIX: Arduino String instead of std::string
+    String val = c->getValue();
+    if (val.length() > 0 && (uint8_t)val[0] == 0x01) {
       zeroing       = true;
       zeroStartMs   = millis();
       zeroAccum[0]  = zeroAccum[1] = 0.0f;
@@ -100,9 +100,11 @@ static bool readMPU(float& ax, float& ay, float& az,
 // ── Setup ──────────────────────────────────────────────────────────────────
 void setup() {
   Serial.begin(115200);
-  Wire.begin();
+  // FIX: Match your wiring (pins 8, 9 from your photos)
+  Wire.begin(8, 9);
   delay(100);
 
+  // Check ONLY for the one sensor at 0x68
   Wire.beginTransmission(ADDR_IMU);
   if (Wire.endTransmission() != 0) {
     Serial.println("ERROR: MPU6050 not found — check I2C wiring");
@@ -112,8 +114,9 @@ void setup() {
   initMPU();
   filter.begin(LOOP_HZ);
 
+  // ─ BLE Setup ─────────────────────────────────────────────────────────
   BLEDevice::init(DEVICE_NAME);
-  BLEServer*  pServer  = BLEDevice::createServer();
+  BLEServer* pServer = BLEDevice::createServer();
   pServer->setCallbacks(new ServerCB());
 
   BLEService* pService = pServer->createService(SERVICE_UUID);
