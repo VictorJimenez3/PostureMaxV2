@@ -27,7 +27,7 @@
       <!-- Top Bar -->
       <header class="topbar">
         <span class="topbar-title" id="panel-title">Live Monitor</span>
-        <div id="connection-banner" class="connection-banner disconnected">Disconnected</div>
+        <div id="connection-banner" class="connection-banner disconnected">Searching…</div>
       </header>
 
       <!-- Content -->
@@ -39,7 +39,38 @@
           <!-- Hero Card -->
           <div id="hero-card" class="hero-card state-unknown">
             <div class="hero-label" id="hero-label">—</div>
-            <div class="hero-sub">Current Posture</div>
+            <div class="hero-sub" id="hero-sub">Current Posture</div>
+          </div>
+
+          <!-- Devices Card -->
+          <div class="card devices-card">
+            <div class="card-title">Sensors</div>
+            <div class="device-rows">
+              <div class="device-row">
+                <div class="device-info">
+                  <span class="device-dot" id="dot-upper"></span>
+                  <div>
+                    <div class="device-name">Upper Sensor</div>
+                    <div class="device-status" id="status-upper">Searching…</div>
+                  </div>
+                </div>
+                <button class="btn-retry" id="btn-retry-upper">Retry</button>
+              </div>
+              <div class="device-row">
+                <div class="device-info">
+                  <span class="device-dot" id="dot-lower"></span>
+                  <div>
+                    <div class="device-name">Lower Sensor</div>
+                    <div class="device-status" id="status-lower">Searching…</div>
+                  </div>
+                </div>
+                <button class="btn-retry" id="btn-retry-lower">Retry</button>
+              </div>
+            </div>
+            <details class="log-section">
+              <summary class="log-toggle">Connection Log</summary>
+              <div class="log-body" id="ble-log"></div>
+            </details>
           </div>
 
           <div class="card-row">

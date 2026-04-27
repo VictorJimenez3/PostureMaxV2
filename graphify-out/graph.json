@@ -4,11 +4,11 @@
   "graph": {
     "hyperedges": [
       {
-        "id": "dual_module_system",
+        "id": "dual_independent_wireless_module_system",
         "label": "Dual Independent Wireless Module System",
         "nodes": [
-          "hardware_module_upper",
-          "hardware_module_lower",
+          "hardware_upper_module",
+          "hardware_lower_module",
           "hardware_esp32c3",
           "hardware_mpu6050",
           "hardware_madgwick"
@@ -19,7 +19,7 @@
         "source_file": "docs/hardware.md"
       },
       {
-        "id": "backend_stack",
+        "id": "posturemax_v2_python_backend_stack",
         "label": "PostureMax V2 Python Backend Stack",
         "nodes": [
           "v2plan_classifier",
@@ -38,7 +38,7 @@
         "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md"
       },
       {
-        "id": "dual_ble_refactor",
+        "id": "dual_ble_architecture_refactor",
         "label": "Dual BLE Architecture Refactor",
         "nodes": [
           "dual_plan_device_connection",
@@ -61,7 +61,7 @@
       "source_file": "backend\\api.py",
       "source_location": "L1",
       "id": "backend_api_py",
-      "community": 6,
+      "community": 1,
       "norm_label": "api.py"
     },
     {
@@ -70,7 +70,7 @@
       "source_file": "backend\\api.py",
       "source_location": "L6",
       "id": "api_create_app",
-      "community": 6,
+      "community": 1,
       "norm_label": "create_app()"
     },
     {
@@ -79,161 +79,242 @@
       "source_file": "backend\\ble_client.py",
       "source_location": "L1",
       "id": "backend_ble_client_py",
-      "community": 4,
+      "community": 9,
       "norm_label": "ble_client.py"
     },
     {
       "label": "DeviceConnection",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L18",
+      "source_location": "L21",
       "id": "ble_client_deviceconnection",
-      "community": 3,
+      "community": 2,
       "norm_label": "deviceconnection"
     },
     {
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L21",
+      "source_location": "L24",
       "id": "ble_client_deviceconnection_init",
-      "community": 3,
+      "community": 2,
       "norm_label": ".__init__()"
     },
     {
       "label": "pitch()",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L40",
+      "source_location": "L43",
       "id": "ble_client_pitch",
-      "community": 4,
+      "community": 9,
       "norm_label": "pitch()"
     },
     {
       "label": "roll()",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L44",
+      "source_location": "L47",
       "id": "ble_client_roll",
-      "community": 4,
+      "community": 9,
       "norm_label": "roll()"
     },
     {
       "label": "is_fresh()",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L48",
+      "source_location": "L51",
       "id": "ble_client_is_fresh",
-      "community": 4,
+      "community": 9,
       "norm_label": "is_fresh()"
     },
     {
       "label": "._on_notify()",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L51",
+      "source_location": "L54",
       "id": "ble_client_deviceconnection_on_notify",
-      "community": 3,
+      "community": 2,
       "norm_label": "._on_notify()"
     },
     {
       "label": ".send_zero()",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L74",
+      "source_location": "L77",
       "id": "ble_client_deviceconnection_send_zero",
-      "community": 4,
+      "community": 0,
       "norm_label": ".send_zero()"
     },
     {
       "label": "._reset_zero_state()",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L83",
+      "source_location": "L86",
       "id": "ble_client_deviceconnection_reset_zero_state",
-      "community": 3,
+      "community": 0,
       "norm_label": "._reset_zero_state()"
     },
     {
-      "label": ".run()",
+      "label": ".connect_and_run()",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L89",
-      "id": "ble_client_deviceconnection_run",
-      "community": 3,
-      "norm_label": ".run()"
+      "source_location": "L92",
+      "id": "ble_client_deviceconnection_connect_and_run",
+      "community": 0,
+      "norm_label": ".connect_and_run()"
     },
     {
       "label": "DualBLEManager",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L116",
+      "source_location": "L118",
       "id": "ble_client_dualblemanager",
-      "community": 4,
+      "community": 0,
       "norm_label": "dualblemanager"
     },
     {
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L119",
+      "source_location": "L121",
       "id": "ble_client_dualblemanager_init",
-      "community": 4,
+      "community": 0,
       "norm_label": ".__init__()"
     },
     {
       "label": "._on_data()",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L124",
+      "source_location": "L129",
       "id": "ble_client_dualblemanager_on_data",
       "community": 2,
       "norm_label": "._on_data()"
     },
     {
+      "label": "._read_gatt_name()",
+      "file_type": "code",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L158",
+      "id": "ble_client_dualblemanager_read_gatt_name",
+      "community": 0,
+      "norm_label": "._read_gatt_name()"
+    },
+    {
+      "label": "._scan_for()",
+      "file_type": "code",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L168",
+      "id": "ble_client_dualblemanager_scan_for",
+      "community": 0,
+      "norm_label": "._scan_for()"
+    },
+    {
+      "label": "._manage()",
+      "file_type": "code",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L217",
+      "id": "ble_client_dualblemanager_manage",
+      "community": 0,
+      "norm_label": "._manage()"
+    },
+    {
       "label": "._poll_zero()",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L153",
+      "source_location": "L239",
       "id": "ble_client_dualblemanager_poll_zero",
-      "community": 4,
+      "community": 0,
       "norm_label": "._poll_zero()"
+    },
+    {
+      "label": "._log_heartbeat()",
+      "file_type": "code",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L248",
+      "id": "ble_client_dualblemanager_log_heartbeat",
+      "community": 0,
+      "norm_label": "._log_heartbeat()"
     },
     {
       "label": ".run()",
       "file_type": "code",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L162",
+      "source_location": "L269",
       "id": "ble_client_dualblemanager_run",
-      "community": 4,
+      "community": 0,
       "norm_label": ".run()"
     },
     {
       "label": "Manages one BLE connection to a single-sensor PostureMax module.",
       "file_type": "rationale",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L19",
-      "id": "ble_client_rationale_19",
-      "community": 3,
+      "source_location": "L22",
+      "id": "ble_client_rationale_22",
+      "community": 2,
       "norm_label": "manages one ble connection to a single-sensor posturemax module."
+    },
+    {
+      "label": "Connect to an already-found device and stream until disconnected.",
+      "file_type": "rationale",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L93",
+      "id": "ble_client_rationale_93",
+      "community": 0,
+      "norm_label": "connect to an already-found device and stream until disconnected."
     },
     {
       "label": "Runs two DeviceConnections concurrently and combines their data.",
       "file_type": "rationale",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L117",
-      "id": "ble_client_rationale_117",
-      "community": 4,
+      "source_location": "L119",
+      "id": "ble_client_rationale_119",
+      "community": 0,
       "norm_label": "runs two deviceconnections concurrently and combines their data."
     },
     {
       "label": "Called synchronously from _on_notify whenever either device updates.",
       "file_type": "rationale",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L125",
-      "id": "ble_client_rationale_125",
+      "source_location": "L130",
+      "id": "ble_client_rationale_130",
       "community": 2,
       "norm_label": "called synchronously from _on_notify whenever either device updates."
+    },
+    {
+      "label": "Connect briefly and read the GATT Device Name characteristic.",
+      "file_type": "rationale",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L159",
+      "id": "ble_client_rationale_159",
+      "community": 0,
+      "norm_label": "connect briefly and read the gatt device name characteristic."
+    },
+    {
+      "label": "Scan once and return the BLEDevice for dc, or None.         Falls back to servic",
+      "file_type": "rationale",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L169",
+      "id": "ble_client_rationale_169",
+      "community": 0,
+      "norm_label": "scan once and return the bledevice for dc, or none.         falls back to servic"
+    },
+    {
+      "label": "Scan -> connect -> reconnect loop for one device.",
+      "file_type": "rationale",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L218",
+      "id": "ble_client_rationale_218",
+      "community": 0,
+      "norm_label": "scan -> connect -> reconnect loop for one device."
+    },
+    {
+      "label": "Log a 'both connected' message once when both sensors are live,         and a 'r",
+      "file_type": "rationale",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L249",
+      "id": "ble_client_rationale_249",
+      "community": 0,
+      "norm_label": "log a 'both connected' message once when both sensors are live,         and a 'r"
     },
     {
       "label": "classifier.py",
@@ -241,7 +322,7 @@
       "source_file": "backend\\classifier.py",
       "source_location": "L1",
       "id": "backend_classifier_py",
-      "community": 7,
+      "community": 4,
       "norm_label": "classifier.py"
     },
     {
@@ -250,7 +331,7 @@
       "source_file": "backend\\classifier.py",
       "source_location": "L4",
       "id": "classifier_classify",
-      "community": 7,
+      "community": 4,
       "norm_label": "classify()"
     },
     {
@@ -259,7 +340,7 @@
       "source_file": "backend\\classifier.py",
       "source_location": "L5",
       "id": "classifier_rationale_5",
-      "community": 7,
+      "community": 4,
       "norm_label": "classify posture based on corrected spine angle deltas.      args:         delta"
     },
     {
@@ -277,7 +358,7 @@
       "source_file": "backend\\db.py",
       "source_location": "L1",
       "id": "backend_db_py",
-      "community": 0,
+      "community": 1,
       "norm_label": "db.py"
     },
     {
@@ -286,7 +367,7 @@
       "source_file": "backend\\db.py",
       "source_location": "L4",
       "id": "db_get_conn",
-      "community": 0,
+      "community": 1,
       "norm_label": "get_conn()"
     },
     {
@@ -295,7 +376,7 @@
       "source_file": "backend\\db.py",
       "source_location": "L10",
       "id": "db_init_db",
-      "community": 0,
+      "community": 1,
       "norm_label": "init_db()"
     },
     {
@@ -304,7 +385,7 @@
       "source_file": "backend\\db.py",
       "source_location": "L40",
       "id": "db_create_session",
-      "community": 0,
+      "community": 1,
       "norm_label": "create_session()"
     },
     {
@@ -313,7 +394,7 @@
       "source_file": "backend\\db.py",
       "source_location": "L45",
       "id": "db_insert_reading",
-      "community": 0,
+      "community": 1,
       "norm_label": "insert_reading()"
     },
     {
@@ -322,7 +403,7 @@
       "source_file": "backend\\db.py",
       "source_location": "L59",
       "id": "db_finalize_session",
-      "community": 0,
+      "community": 1,
       "norm_label": "finalize_session()"
     },
     {
@@ -331,7 +412,7 @@
       "source_file": "backend\\db.py",
       "source_location": "L73",
       "id": "db_get_session_history",
-      "community": 0,
+      "community": 1,
       "norm_label": "get_session_history()"
     },
     {
@@ -340,7 +421,7 @@
       "source_file": "backend\\db.py",
       "source_location": "L80",
       "id": "db_get_session",
-      "community": 0,
+      "community": 1,
       "norm_label": "get_session()"
     },
     {
@@ -349,7 +430,7 @@
       "source_file": "backend\\db.py",
       "source_location": "L85",
       "id": "db_get_session_readings",
-      "community": 0,
+      "community": 1,
       "norm_label": "get_session_readings()"
     },
     {
@@ -412,7 +493,7 @@
       "source_file": "backend\\main.py",
       "source_location": "L1",
       "id": "backend_main_py",
-      "community": 4,
+      "community": 0,
       "norm_label": "main.py"
     },
     {
@@ -421,7 +502,7 @@
       "source_file": "backend\\main.py",
       "source_location": "L10",
       "id": "main_run_ble",
-      "community": 4,
+      "community": 0,
       "norm_label": "_run_ble()"
     },
     {
@@ -430,7 +511,7 @@
       "source_file": "backend\\main.py",
       "source_location": "L15",
       "id": "main_main",
-      "community": 4,
+      "community": 1,
       "norm_label": "main()"
     },
     {
@@ -439,32 +520,32 @@
       "source_file": "backend\\state.py",
       "source_location": "L1",
       "id": "backend_state_py",
-      "community": 2,
+      "community": 0,
       "norm_label": "state.py"
     },
     {
       "label": "_State",
       "file_type": "code",
       "source_file": "backend\\state.py",
-      "source_location": "L4",
+      "source_location": "L5",
       "id": "state_state",
-      "community": 2,
+      "community": 0,
       "norm_label": "_state"
     },
     {
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "backend\\state.py",
-      "source_location": "L5",
+      "source_location": "L6",
       "id": "state_state_init",
-      "community": 2,
+      "community": 0,
       "norm_label": ".__init__()"
     },
     {
       "label": "get_state()",
       "file_type": "code",
       "source_file": "backend\\state.py",
-      "source_location": "L25",
+      "source_location": "L31",
       "id": "state_get_state",
       "community": 2,
       "norm_label": "get_state()"
@@ -473,16 +554,16 @@
       "label": "get_session_state()",
       "file_type": "code",
       "source_file": "backend\\state.py",
-      "source_location": "L38",
+      "source_location": "L46",
       "id": "state_get_session_state",
-      "community": 2,
+      "community": 0,
       "norm_label": "get_session_state()"
     },
     {
       "label": "update_live()",
       "file_type": "code",
       "source_file": "backend\\state.py",
-      "source_location": "L49",
+      "source_location": "L57",
       "id": "state_update_live",
       "community": 2,
       "norm_label": "update_live()"
@@ -491,37 +572,82 @@
       "label": "update_session()",
       "file_type": "code",
       "source_file": "backend\\state.py",
-      "source_location": "L63",
+      "source_location": "L71",
       "id": "state_update_session",
-      "community": 5,
+      "community": 0,
       "norm_label": "update_session()"
+    },
+    {
+      "label": "set_device_connected()",
+      "file_type": "code",
+      "source_file": "backend\\state.py",
+      "source_location": "L82",
+      "id": "state_set_device_connected",
+      "community": 0,
+      "norm_label": "set_device_connected()"
     },
     {
       "label": "set_disconnected()",
       "file_type": "code",
       "source_file": "backend\\state.py",
-      "source_location": "L74",
+      "source_location": "L89",
       "id": "state_set_disconnected",
-      "community": 2,
+      "community": 0,
       "norm_label": "set_disconnected()"
     },
     {
       "label": "request_zero()",
       "file_type": "code",
       "source_file": "backend\\state.py",
-      "source_location": "L80",
+      "source_location": "L95",
       "id": "state_request_zero",
-      "community": 2,
+      "community": 0,
       "norm_label": "request_zero()"
     },
     {
       "label": "consume_zero_trigger()",
       "file_type": "code",
       "source_file": "backend\\state.py",
-      "source_location": "L84",
+      "source_location": "L99",
       "id": "state_consume_zero_trigger",
-      "community": 6,
+      "community": 0,
       "norm_label": "consume_zero_trigger()"
+    },
+    {
+      "label": "request_retry()",
+      "file_type": "code",
+      "source_file": "backend\\state.py",
+      "source_location": "L106",
+      "id": "state_request_retry",
+      "community": 0,
+      "norm_label": "request_retry()"
+    },
+    {
+      "label": "consume_retry()",
+      "file_type": "code",
+      "source_file": "backend\\state.py",
+      "source_location": "L113",
+      "id": "state_consume_retry",
+      "community": 0,
+      "norm_label": "consume_retry()"
+    },
+    {
+      "label": "add_ble_log()",
+      "file_type": "code",
+      "source_file": "backend\\state.py",
+      "source_location": "L123",
+      "id": "state_add_ble_log",
+      "community": 0,
+      "norm_label": "add_ble_log()"
+    },
+    {
+      "label": "get_ble_log()",
+      "file_type": "code",
+      "source_file": "backend\\state.py",
+      "source_location": "L129",
+      "id": "state_get_ble_log",
+      "community": 0,
+      "norm_label": "get_ble_log()"
     },
     {
       "label": "__init__.py",
@@ -538,7 +664,7 @@
       "source_file": "backend\\static\\app.js",
       "source_location": "L1",
       "id": "backend_static_app_js",
-      "community": 9,
+      "community": 7,
       "norm_label": "app.js"
     },
     {
@@ -547,7 +673,7 @@
       "source_file": "backend\\static\\app.js",
       "source_location": "L23",
       "id": "app_formatduration",
-      "community": 9,
+      "community": 7,
       "norm_label": "formatduration()"
     },
     {
@@ -556,7 +682,7 @@
       "source_file": "backend\\static\\app.js",
       "source_location": "L30",
       "id": "app_clamp",
-      "community": 9,
+      "community": 7,
       "norm_label": "clamp()"
     },
     {
@@ -565,25 +691,34 @@
       "source_file": "backend\\static\\app.js",
       "source_location": "L34",
       "id": "app_angletopercent",
-      "community": 9,
+      "community": 7,
       "norm_label": "angletopercent()"
+    },
+    {
+      "label": "updateDevices()",
+      "file_type": "code",
+      "source_file": "backend\\static\\app.js",
+      "source_location": "L39",
+      "id": "app_updatedevices",
+      "community": 7,
+      "norm_label": "updatedevices()"
     },
     {
       "label": "updateLive()",
       "file_type": "code",
       "source_file": "backend\\static\\app.js",
-      "source_location": "L39",
+      "source_location": "L74",
       "id": "app_updatelive",
-      "community": 9,
+      "community": 7,
       "norm_label": "updatelive()"
     },
     {
       "label": "loadHistory()",
       "file_type": "code",
       "source_file": "backend\\static\\app.js",
-      "source_location": "L87",
+      "source_location": "L116",
       "id": "app_loadhistory",
-      "community": 9,
+      "community": 7,
       "norm_label": "loadhistory()"
     },
     {
@@ -592,7 +727,7 @@
       "source_file": "tests\\test_api.py",
       "source_location": "L1",
       "id": "tests_test_api_py",
-      "community": 6,
+      "community": 8,
       "norm_label": "test_api.py"
     },
     {
@@ -601,7 +736,7 @@
       "source_file": "tests\\test_api.py",
       "source_location": "L7",
       "id": "test_api_client",
-      "community": 6,
+      "community": 8,
       "norm_label": "client()"
     },
     {
@@ -610,7 +745,7 @@
       "source_file": "tests\\test_api.py",
       "source_location": "L14",
       "id": "test_api_test_index_returns_html",
-      "community": 6,
+      "community": 8,
       "norm_label": "test_index_returns_html()"
     },
     {
@@ -619,7 +754,7 @@
       "source_file": "tests\\test_api.py",
       "source_location": "L20",
       "id": "test_api_test_status_shape",
-      "community": 6,
+      "community": 8,
       "norm_label": "test_status_shape()"
     },
     {
@@ -628,7 +763,7 @@
       "source_file": "tests\\test_api.py",
       "source_location": "L28",
       "id": "test_api_test_session_current_shape",
-      "community": 6,
+      "community": 8,
       "norm_label": "test_session_current_shape()"
     },
     {
@@ -637,7 +772,7 @@
       "source_file": "tests\\test_api.py",
       "source_location": "L35",
       "id": "test_api_test_history_empty",
-      "community": 6,
+      "community": 8,
       "norm_label": "test_history_empty()"
     },
     {
@@ -646,7 +781,7 @@
       "source_file": "tests\\test_api.py",
       "source_location": "L41",
       "id": "test_api_test_history_returns_finished_sessions",
-      "community": 0,
+      "community": 1,
       "norm_label": "test_history_returns_finished_sessions()"
     },
     {
@@ -655,7 +790,7 @@
       "source_file": "tests\\test_api.py",
       "source_location": "L52",
       "id": "test_api_test_session_detail_not_found",
-      "community": 6,
+      "community": 8,
       "norm_label": "test_session_detail_not_found()"
     },
     {
@@ -664,7 +799,7 @@
       "source_file": "tests\\test_api.py",
       "source_location": "L57",
       "id": "test_api_test_session_detail_found",
-      "community": 0,
+      "community": 1,
       "norm_label": "test_session_detail_found()"
     },
     {
@@ -673,7 +808,7 @@
       "source_file": "tests\\test_api.py",
       "source_location": "L69",
       "id": "test_api_test_zero_sets_trigger",
-      "community": 6,
+      "community": 0,
       "norm_label": "test_zero_sets_trigger()"
     },
     {
@@ -682,7 +817,7 @@
       "source_file": "tests\\test_ble_client.py",
       "source_location": "L1",
       "id": "tests_test_ble_client_py",
-      "community": 3,
+      "community": 2,
       "norm_label": "test_ble_client.py"
     },
     {
@@ -691,7 +826,7 @@
       "source_file": "tests\\test_ble_client.py",
       "source_location": "L12",
       "id": "test_ble_client_db",
-      "community": 0,
+      "community": 1,
       "norm_label": "db()"
     },
     {
@@ -700,7 +835,7 @@
       "source_file": "tests\\test_ble_client.py",
       "source_location": "L19",
       "id": "test_ble_client_manager",
-      "community": 4,
+      "community": 0,
       "norm_label": "manager()"
     },
     {
@@ -709,7 +844,7 @@
       "source_file": "tests\\test_ble_client.py",
       "source_location": "L26",
       "id": "test_ble_client_test_device_parses_8_byte_packet",
-      "community": 3,
+      "community": 2,
       "norm_label": "test_device_parses_8_byte_packet()"
     },
     {
@@ -718,7 +853,7 @@
       "source_file": "tests\\test_ble_client.py",
       "source_location": "L35",
       "id": "test_ble_client_test_device_skips_short_packet",
-      "community": 3,
+      "community": 2,
       "norm_label": "test_device_skips_short_packet()"
     },
     {
@@ -727,7 +862,7 @@
       "source_file": "tests\\test_ble_client.py",
       "source_location": "L43",
       "id": "test_ble_client_test_device_skips_during_settle",
-      "community": 3,
+      "community": 2,
       "norm_label": "test_device_skips_during_settle()"
     },
     {
@@ -736,7 +871,7 @@
       "source_file": "tests\\test_ble_client.py",
       "source_location": "L51",
       "id": "test_ble_client_test_device_applies_reference",
-      "community": 3,
+      "community": 2,
       "norm_label": "test_device_applies_reference()"
     },
     {
@@ -745,7 +880,7 @@
       "source_file": "tests\\test_ble_client.py",
       "source_location": "L62",
       "id": "test_ble_client_test_device_is_fresh_when_recently_seen",
-      "community": 3,
+      "community": 2,
       "norm_label": "test_device_is_fresh_when_recently_seen()"
     },
     {
@@ -754,7 +889,7 @@
       "source_file": "tests\\test_ble_client.py",
       "source_location": "L68",
       "id": "test_ble_client_test_device_is_stale_when_not_seen",
-      "community": 3,
+      "community": 2,
       "norm_label": "test_device_is_stale_when_not_seen()"
     },
     {
@@ -763,7 +898,7 @@
       "source_file": "tests\\test_ble_client.py",
       "source_location": "L74",
       "id": "test_ble_client_test_device_on_notify_sets_fresh",
-      "community": 3,
+      "community": 2,
       "norm_label": "test_device_on_notify_sets_fresh()"
     },
     {
@@ -844,7 +979,7 @@
       "source_file": "tests\\test_classifier.py",
       "source_location": "L1",
       "id": "tests_test_classifier_py",
-      "community": 7,
+      "community": 4,
       "norm_label": "test_classifier.py"
     },
     {
@@ -853,7 +988,7 @@
       "source_file": "tests\\test_classifier.py",
       "source_location": "L6",
       "id": "test_classifier_test_good_posture",
-      "community": 7,
+      "community": 4,
       "norm_label": "test_good_posture()"
     },
     {
@@ -862,7 +997,7 @@
       "source_file": "tests\\test_classifier.py",
       "source_location": "L10",
       "id": "test_classifier_test_slouching_forward",
-      "community": 7,
+      "community": 4,
       "norm_label": "test_slouching_forward()"
     },
     {
@@ -871,7 +1006,7 @@
       "source_file": "tests\\test_classifier.py",
       "source_location": "L14",
       "id": "test_classifier_test_hyperextended",
-      "community": 7,
+      "community": 4,
       "norm_label": "test_hyperextended()"
     },
     {
@@ -880,7 +1015,7 @@
       "source_file": "tests\\test_classifier.py",
       "source_location": "L18",
       "id": "test_classifier_test_leaning_right",
-      "community": 7,
+      "community": 4,
       "norm_label": "test_leaning_right()"
     },
     {
@@ -889,7 +1024,7 @@
       "source_file": "tests\\test_classifier.py",
       "source_location": "L22",
       "id": "test_classifier_test_leaning_left",
-      "community": 7,
+      "community": 4,
       "norm_label": "test_leaning_left()"
     },
     {
@@ -898,7 +1033,7 @@
       "source_file": "tests\\test_classifier.py",
       "source_location": "L26",
       "id": "test_classifier_test_at_threshold_boundary_is_good",
-      "community": 7,
+      "community": 4,
       "norm_label": "test_at_threshold_boundary_is_good()"
     },
     {
@@ -907,7 +1042,7 @@
       "source_file": "tests\\test_classifier.py",
       "source_location": "L32",
       "id": "test_classifier_test_pitch_checked_before_roll",
-      "community": 7,
+      "community": 4,
       "norm_label": "test_pitch_checked_before_roll()"
     },
     {
@@ -916,7 +1051,7 @@
       "source_file": "tests\\test_db.py",
       "source_location": "L1",
       "id": "tests_test_db_py",
-      "community": 0,
+      "community": 1,
       "norm_label": "test_db.py"
     },
     {
@@ -925,7 +1060,7 @@
       "source_file": "tests\\test_db.py",
       "source_location": "L9",
       "id": "test_db_conn",
-      "community": 0,
+      "community": 1,
       "norm_label": "conn()"
     },
     {
@@ -934,7 +1069,7 @@
       "source_file": "tests\\test_db.py",
       "source_location": "L16",
       "id": "test_db_test_tables_created",
-      "community": 0,
+      "community": 1,
       "norm_label": "test_tables_created()"
     },
     {
@@ -943,7 +1078,7 @@
       "source_file": "tests\\test_db.py",
       "source_location": "L22",
       "id": "test_db_test_create_and_get_session",
-      "community": 0,
+      "community": 1,
       "norm_label": "test_create_and_get_session()"
     },
     {
@@ -952,7 +1087,7 @@
       "source_file": "tests\\test_db.py",
       "source_location": "L29",
       "id": "test_db_test_get_session_returns_none_for_missing",
-      "community": 0,
+      "community": 1,
       "norm_label": "test_get_session_returns_none_for_missing()"
     },
     {
@@ -961,7 +1096,7 @@
       "source_file": "tests\\test_db.py",
       "source_location": "L32",
       "id": "test_db_test_insert_reading",
-      "community": 0,
+      "community": 1,
       "norm_label": "test_insert_reading()"
     },
     {
@@ -970,7 +1105,7 @@
       "source_file": "tests\\test_db.py",
       "source_location": "L41",
       "id": "test_db_test_finalize_session",
-      "community": 0,
+      "community": 1,
       "norm_label": "test_finalize_session()"
     },
     {
@@ -979,7 +1114,7 @@
       "source_file": "tests\\test_db.py",
       "source_location": "L49",
       "id": "test_db_test_history_excludes_open_sessions",
-      "community": 0,
+      "community": 1,
       "norm_label": "test_history_excludes_open_sessions()"
     },
     {
@@ -988,7 +1123,7 @@
       "source_file": "tests\\test_db.py",
       "source_location": "L58",
       "id": "test_db_test_history_ordered_newest_first",
-      "community": 0,
+      "community": 1,
       "norm_label": "test_history_ordered_newest_first()"
     },
     {
@@ -1006,7 +1141,7 @@
       "source_file": "tests\\test_logger.py",
       "source_location": "L8",
       "id": "test_logger_db",
-      "community": 5,
+      "community": 1,
       "norm_label": "db()"
     },
     {
@@ -1055,407 +1190,433 @@
       "norm_label": "__init__.py"
     },
     {
-      "label": "bleak (BLE Python library)",
+      "label": "Graphify Knowledge Graph Rules",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claudemd_graphify_rules",
+      "community": 3,
+      "norm_label": "graphify knowledge graph rules"
+    },
+    {
+      "label": "bleak BLE Python Library",
       "file_type": "document",
       "source_file": "requirements.txt",
-      "source_location": null,
+      "source_location": "line 1",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "requirements_bleak",
-      "community": 1,
-      "norm_label": "bleak (ble python library)"
+      "community": 3,
+      "norm_label": "bleak ble python library"
     },
     {
-      "label": "Flask (Python web framework)",
+      "label": "Flask Python Web Framework",
       "file_type": "document",
       "source_file": "requirements.txt",
-      "source_location": null,
+      "source_location": "line 2",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "requirements_flask",
-      "community": 1,
-      "norm_label": "flask (python web framework)"
+      "community": 3,
+      "norm_label": "flask python web framework"
     },
     {
-      "label": "pytest (Python test framework)",
+      "label": "pytest Testing Framework",
       "file_type": "document",
       "source_file": "requirements.txt",
-      "source_location": null,
+      "source_location": "line 3",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "requirements_pytest",
-      "community": 1,
-      "norm_label": "pytest (python test framework)"
+      "community": 3,
+      "norm_label": "pytest testing framework"
     },
     {
-      "label": "PostureMax System",
+      "label": "Upper Module PostureMax-Upper T5-T7 thoracic",
       "file_type": "document",
       "source_file": "docs/hardware.md",
-      "source_location": null,
+      "source_location": "Module Placement",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "hardware_posturemax_system",
-      "community": 8,
-      "norm_label": "posturemax system"
+      "id": "hardware_upper_module",
+      "community": 6,
+      "norm_label": "upper module posturemax-upper t5-t7 thoracic"
     },
     {
-      "label": "Upper Module (PostureMax-Upper)",
+      "label": "Lower Module PostureMax-Lower L3-L5 lumbar",
       "file_type": "document",
       "source_file": "docs/hardware.md",
-      "source_location": null,
+      "source_location": "Module Placement",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "hardware_module_upper",
-      "community": 8,
-      "norm_label": "upper module (posturemax-upper)"
+      "id": "hardware_lower_module",
+      "community": 6,
+      "norm_label": "lower module posturemax-lower l3-l5 lumbar"
     },
     {
-      "label": "Lower Module (PostureMax-Lower)",
+      "label": "ESP32-C3 Super Mini Microcontroller",
       "file_type": "document",
       "source_file": "docs/hardware.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "hardware_module_lower",
-      "community": 8,
-      "norm_label": "lower module (posturemax-lower)"
-    },
-    {
-      "label": "ESP32-C3 Microcontroller",
-      "file_type": "document",
-      "source_file": "docs/hardware.md",
-      "source_location": null,
+      "source_location": "System Overview",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "hardware_esp32c3",
-      "community": 8,
-      "norm_label": "esp32-c3 microcontroller"
+      "community": 6,
+      "norm_label": "esp32-c3 super mini microcontroller"
     },
     {
       "label": "MPU6050 IMU Sensor",
       "file_type": "document",
       "source_file": "docs/hardware.md",
-      "source_location": null,
+      "source_location": "System Overview",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "hardware_mpu6050",
-      "community": 8,
+      "community": 6,
       "norm_label": "mpu6050 imu sensor"
     },
     {
       "label": "MadgwickAHRS Sensor Fusion Filter",
       "file_type": "document",
       "source_file": "docs/hardware.md",
-      "source_location": null,
+      "source_location": "System Overview",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "hardware_madgwick",
-      "community": 1,
+      "community": 6,
       "norm_label": "madgwickahrs sensor fusion filter"
     },
     {
-      "label": "BLE Identity (IS_UPPER Flag)",
+      "label": "BLE Identity via IS_UPPER Compile-Time Flag",
       "file_type": "document",
       "source_file": "docs/hardware.md",
-      "source_location": null,
+      "source_location": "BLE Identity",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "hardware_ble_identity",
-      "community": 8,
-      "norm_label": "ble identity (is_upper flag)"
-    },
-    {
-      "label": "Firmware Constraints (100Hz, 8-byte packet)",
-      "file_type": "document",
-      "source_file": "docs/hardware.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "hardware_firmware_constraints",
-      "community": 1,
-      "norm_label": "firmware constraints (100hz, 8-byte packet)"
+      "community": 6,
+      "norm_label": "ble identity via is_upper compile-time flag"
     },
     {
       "label": "Hardware Failure Modes",
       "file_type": "document",
       "source_file": "docs/hardware.md",
-      "source_location": null,
+      "source_location": "Known Hardware Failure Modes",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "hardware_failure_modes",
-      "community": 8,
+      "community": 6,
       "norm_label": "hardware failure modes"
     },
     {
-      "label": "Rationale: Fully Wireless Dual-Module (No Shared Bus)",
+      "label": "Firmware Constraints 100Hz 8-byte packet pitch+roll only",
       "file_type": "document",
       "source_file": "docs/hardware.md",
-      "source_location": null,
+      "source_location": "Firmware Constraints",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "hardware_rationale_no_wires",
-      "community": 8,
-      "norm_label": "rationale: fully wireless dual-module (no shared bus)"
+      "id": "hardware_firmware_constraints",
+      "community": 6,
+      "norm_label": "firmware constraints 100hz 8-byte packet pitch+roll only"
     },
     {
-      "label": "Dual Wireless Modules Correction Plan",
+      "label": "Rationale Two fully independent wireless modules no shared bus",
       "file_type": "document",
-      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_file": "docs/hardware.md",
+      "source_location": "System Overview",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "dual_plan_architecture_correction",
-      "community": 8,
-      "norm_label": "dual wireless modules correction plan"
+      "id": "hardware_rationale_wireless",
+      "community": 6,
+      "norm_label": "rationale two fully independent wireless modules no shared bus"
     },
     {
-      "label": "DeviceConnection Class",
+      "label": "Dual Wireless Modules Architecture Correction Plan",
       "file_type": "document",
       "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_location": "header",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "dual_plan_overview",
+      "community": 3,
+      "norm_label": "dual wireless modules architecture correction plan"
+    },
+    {
+      "label": "DeviceConnection Class single BLE device manager",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
+      "source_location": "Task 4",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "dual_plan_device_connection",
-      "community": 1,
-      "norm_label": "deviceconnection class"
+      "community": 3,
+      "norm_label": "deviceconnection class single ble device manager"
     },
     {
-      "label": "DualBLEManager Class",
+      "label": "DualBLEManager Class concurrent dual BLE connections",
       "file_type": "document",
       "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_location": "Task 4",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "dual_plan_dual_ble_manager",
-      "community": 1,
-      "norm_label": "dualblemanager class"
+      "community": 3,
+      "norm_label": "dualblemanager class concurrent dual ble connections"
     },
     {
-      "label": "Staleness Check (STALENESS_S)",
+      "label": "Config Update DEVICE_NAME_UPPER LOWER plus STALENESS_S",
       "file_type": "document",
       "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "dual_plan_staleness_check",
-      "community": 1,
-      "norm_label": "staleness check (staleness_s)"
-    },
-    {
-      "label": "Config: DEVICE_NAME_UPPER/LOWER + STALENESS_S",
-      "file_type": "document",
-      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_location": "Task 2",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "dual_plan_config_update",
-      "community": 8,
-      "norm_label": "config: device_name_upper/lower + staleness_s"
+      "community": 3,
+      "norm_label": "config update device_name_upper lower plus staleness_s"
     },
     {
-      "label": "Firmware Rewrite: IS_UPPER Flag + Single Sensor",
+      "label": "Firmware Rewrite IS_UPPER Flag Single Sensor per Module",
       "file_type": "document",
       "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_location": "Task 3",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "dual_plan_firmware_rewrite",
-      "community": 8,
-      "norm_label": "firmware rewrite: is_upper flag + single sensor"
+      "community": 6,
+      "norm_label": "firmware rewrite is_upper flag single sensor per module"
     },
     {
-      "label": "Rationale: asyncio.gather for Concurrent BLE",
+      "label": "Staleness Check STALENESS_S pause classification",
       "file_type": "document",
       "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_location": "Task 4 Step 3",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "dual_plan_rationale_asyncio_gather",
-      "community": 1,
-      "norm_label": "rationale: asyncio.gather for concurrent ble"
+      "id": "dual_plan_staleness_check",
+      "community": 3,
+      "norm_label": "staleness check staleness_s pause classification"
+    },
+    {
+      "label": "Rationale asyncio gather for Concurrent BLE Connections",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
+      "source_location": "Architecture section",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "dual_plan_rationale_asyncio",
+      "community": 3,
+      "norm_label": "rationale asyncio gather for concurrent ble connections"
+    },
+    {
+      "label": "main.py Update BLEClient to DualBLEManager",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
+      "source_location": "Task 5",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "dual_plan_main_update",
+      "community": 3,
+      "norm_label": "main.py update bleclient to dualblemanager"
     },
     {
       "label": "PostureMax V2 Implementation Plan",
       "file_type": "document",
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "header",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "v2plan_posturemax_v2",
-      "community": 1,
+      "id": "v2plan_overview",
+      "community": 3,
       "norm_label": "posturemax v2 implementation plan"
     },
     {
-      "label": "Posture Classifier (Threshold-Based)",
+      "label": "Classifier Module Plan threshold-based posture classification",
       "file_type": "document",
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "Task 2",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "v2plan_classifier",
-      "community": 1,
-      "norm_label": "posture classifier (threshold-based)"
+      "community": 3,
+      "norm_label": "classifier module plan threshold-based posture classification"
     },
     {
-      "label": "SQLite Database Layer",
+      "label": "Database Layer Plan SQLite sessions and readings",
       "file_type": "document",
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "Task 3",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "v2plan_db_layer",
-      "community": 1,
-      "norm_label": "sqlite database layer"
+      "community": 3,
+      "norm_label": "database layer plan sqlite sessions and readings"
     },
     {
-      "label": "SessionLogger (1Hz Downsampled)",
+      "label": "Session Logger Plan 1Hz downsampling stats",
       "file_type": "document",
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "Task 5",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "v2plan_session_logger",
-      "community": 1,
-      "norm_label": "sessionlogger (1hz downsampled)"
+      "community": 3,
+      "norm_label": "session logger plan 1hz downsampling stats"
     },
     {
-      "label": "Flask REST API",
+      "label": "Flask API Plan REST routes app factory",
       "file_type": "document",
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "Task 6",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "v2plan_flask_api",
-      "community": 1,
-      "norm_label": "flask rest api"
+      "community": 3,
+      "norm_label": "flask api plan rest routes app factory"
     },
     {
-      "label": "Original BLEClient (Single Device)",
+      "label": "Thread-Safe Live State Module Plan",
       "file_type": "document",
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "v2plan_ble_client_original",
-      "community": 1,
-      "norm_label": "original bleclient (single device)"
-    },
-    {
-      "label": "Dashboard SPA (HTML/CSS/JS + Chart.js)",
-      "file_type": "document",
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "v2plan_dashboard_spa",
-      "community": 1,
-      "norm_label": "dashboard spa (html/css/js + chart.js)"
-    },
-    {
-      "label": "Original Firmware (Dual MPU6050, 4-Float Packet)",
-      "file_type": "document",
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "v2plan_firmware_original",
-      "community": 1,
-      "norm_label": "original firmware (dual mpu6050, 4-float packet)"
-    },
-    {
-      "label": "Thread-Safe State Module",
-      "file_type": "document",
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "Task 4",
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
       "id": "v2plan_state_module",
-      "community": 1,
-      "norm_label": "thread-safe state module"
+      "community": 3,
+      "norm_label": "thread-safe live state module plan"
     },
     {
-      "label": "SQLite Database",
+      "label": "Original BLE Client Plan single BLEClient class",
       "file_type": "document",
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
+      "source_location": "Task 7",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "v2plan_ble_client_original",
+      "community": 3,
+      "norm_label": "original ble client plan single bleclient class"
+    },
+    {
+      "label": "Dashboard SPA HTML Plan",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
+      "source_location": "Task 9",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "v2plan_dashboard_html",
+      "community": 3,
+      "norm_label": "dashboard spa html plan"
+    },
+    {
+      "label": "Dashboard CSS Plan clinical minimalist",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
+      "source_location": "Task 10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "v2plan_dashboard_css",
+      "community": 3,
+      "norm_label": "dashboard css plan clinical minimalist"
+    },
+    {
+      "label": "Dashboard JavaScript Plan polling gauges Chart.js",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
+      "source_location": "Task 11",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "v2plan_dashboard_js",
+      "community": 3,
+      "norm_label": "dashboard javascript plan polling gauges chart.js"
+    },
+    {
+      "label": "Original Firmware Plan dual-sensor single ESP32",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
+      "source_location": "Task 12",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "v2plan_firmware_original",
+      "community": 6,
+      "norm_label": "original firmware plan dual-sensor single esp32"
+    },
+    {
+      "label": "Graph Report community structure god nodes",
+      "file_type": "document",
+      "source_file": "graphify-out/GRAPH_REPORT.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "v2plan_sqlite",
-      "community": 1,
-      "norm_label": "sqlite database"
-    },
-    {
-      "label": "Chart.js (Session History Viz)",
-      "file_type": "document",
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "v2plan_chartjs",
-      "community": 1,
-      "norm_label": "chart.js (session history viz)"
+      "id": "graph_report",
+      "community": 3,
+      "norm_label": "graph report community structure god nodes"
     }
   ],
   "links": [
@@ -1523,7 +1684,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L18",
+      "source_location": "L21",
       "weight": 1.0,
       "_src": "backend_ble_client_py",
       "_tgt": "ble_client_deviceconnection",
@@ -1535,7 +1696,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L40",
+      "source_location": "L43",
       "weight": 1.0,
       "_src": "backend_ble_client_py",
       "_tgt": "ble_client_pitch",
@@ -1547,7 +1708,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L44",
+      "source_location": "L47",
       "weight": 1.0,
       "_src": "backend_ble_client_py",
       "_tgt": "ble_client_roll",
@@ -1559,7 +1720,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L48",
+      "source_location": "L51",
       "weight": 1.0,
       "_src": "backend_ble_client_py",
       "_tgt": "ble_client_is_fresh",
@@ -1571,7 +1732,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L116",
+      "source_location": "L118",
       "weight": 1.0,
       "_src": "backend_ble_client_py",
       "_tgt": "ble_client_dualblemanager",
@@ -1583,7 +1744,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L21",
+      "source_location": "L24",
       "weight": 1.0,
       "_src": "ble_client_deviceconnection",
       "_tgt": "ble_client_deviceconnection_init",
@@ -1595,7 +1756,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L51",
+      "source_location": "L54",
       "weight": 1.0,
       "_src": "ble_client_deviceconnection",
       "_tgt": "ble_client_deviceconnection_on_notify",
@@ -1607,7 +1768,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L74",
+      "source_location": "L77",
       "weight": 1.0,
       "_src": "ble_client_deviceconnection",
       "_tgt": "ble_client_deviceconnection_send_zero",
@@ -1619,7 +1780,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L83",
+      "source_location": "L86",
       "weight": 1.0,
       "_src": "ble_client_deviceconnection",
       "_tgt": "ble_client_deviceconnection_reset_zero_state",
@@ -1631,19 +1792,19 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L89",
+      "source_location": "L92",
       "weight": 1.0,
       "_src": "ble_client_deviceconnection",
-      "_tgt": "ble_client_deviceconnection_run",
+      "_tgt": "ble_client_deviceconnection_connect_and_run",
       "source": "ble_client_deviceconnection",
-      "target": "ble_client_deviceconnection_run",
+      "target": "ble_client_deviceconnection_connect_and_run",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L121",
+      "source_location": "L123",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager_init",
       "_tgt": "ble_client_deviceconnection",
@@ -1655,12 +1816,12 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L19",
+      "source_location": "L22",
       "weight": 1.0,
-      "_src": "ble_client_rationale_19",
+      "_src": "ble_client_rationale_22",
       "_tgt": "ble_client_deviceconnection",
       "source": "ble_client_deviceconnection",
-      "target": "ble_client_rationale_19",
+      "target": "ble_client_rationale_22",
       "confidence_score": 1.0
     },
     {
@@ -1811,7 +1972,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L157",
+      "source_location": "L243",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager_poll_zero",
       "_tgt": "ble_client_deviceconnection_send_zero",
@@ -1823,19 +1984,67 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L110",
+      "source_location": "L113",
       "weight": 1.0,
-      "_src": "ble_client_deviceconnection_run",
+      "_src": "ble_client_deviceconnection_connect_and_run",
       "_tgt": "ble_client_deviceconnection_reset_zero_state",
       "source": "ble_client_deviceconnection_reset_zero_state",
-      "target": "ble_client_deviceconnection_run",
+      "target": "ble_client_deviceconnection_connect_and_run",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L234",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager_manage",
+      "_tgt": "ble_client_deviceconnection_connect_and_run",
+      "source": "ble_client_deviceconnection_connect_and_run",
+      "target": "ble_client_dualblemanager_manage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_src": "ble_client_rationale_93",
+      "_tgt": "ble_client_deviceconnection_connect_and_run",
+      "source": "ble_client_deviceconnection_connect_and_run",
+      "target": "ble_client_rationale_93",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "_src": "ble_client_deviceconnection_connect_and_run",
+      "_tgt": "state_add_ble_log",
+      "source": "ble_client_deviceconnection_connect_and_run",
+      "target": "state_add_ble_log"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_src": "ble_client_deviceconnection_connect_and_run",
+      "_tgt": "state_set_device_connected",
+      "source": "ble_client_deviceconnection_connect_and_run",
+      "target": "state_set_device_connected"
     },
     {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L119",
+      "source_location": "L121",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager",
       "_tgt": "ble_client_dualblemanager_init",
@@ -1847,7 +2056,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L124",
+      "source_location": "L129",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager",
       "_tgt": "ble_client_dualblemanager_on_data",
@@ -1859,7 +2068,43 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L153",
+      "source_location": "L158",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager",
+      "_tgt": "ble_client_dualblemanager_read_gatt_name",
+      "source": "ble_client_dualblemanager",
+      "target": "ble_client_dualblemanager_read_gatt_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L168",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager",
+      "_tgt": "ble_client_dualblemanager_scan_for",
+      "source": "ble_client_dualblemanager",
+      "target": "ble_client_dualblemanager_scan_for",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L217",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager",
+      "_tgt": "ble_client_dualblemanager_manage",
+      "source": "ble_client_dualblemanager",
+      "target": "ble_client_dualblemanager_manage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L239",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager",
       "_tgt": "ble_client_dualblemanager_poll_zero",
@@ -1871,7 +2116,19 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L162",
+      "source_location": "L248",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager",
+      "_tgt": "ble_client_dualblemanager_log_heartbeat",
+      "source": "ble_client_dualblemanager",
+      "target": "ble_client_dualblemanager_log_heartbeat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L269",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager",
       "_tgt": "ble_client_dualblemanager_run",
@@ -1883,12 +2140,12 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L117",
+      "source_location": "L119",
       "weight": 1.0,
-      "_src": "ble_client_rationale_117",
+      "_src": "ble_client_rationale_119",
       "_tgt": "ble_client_dualblemanager",
       "source": "ble_client_dualblemanager",
-      "target": "ble_client_rationale_117",
+      "target": "ble_client_rationale_119",
       "confidence_score": 1.0
     },
     {
@@ -1919,12 +2176,12 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L125",
+      "source_location": "L130",
       "weight": 1.0,
-      "_src": "ble_client_rationale_125",
+      "_src": "ble_client_rationale_130",
       "_tgt": "ble_client_dualblemanager_on_data",
       "source": "ble_client_dualblemanager_on_data",
-      "target": "ble_client_rationale_125",
+      "target": "ble_client_rationale_130",
       "confidence_score": 1.0
     },
     {
@@ -1932,7 +2189,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend\\ble_client.py",
-      "source_location": "L130",
+      "source_location": "L135",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager_on_data",
       "_tgt": "logger_sessionlogger_end_session",
@@ -1944,7 +2201,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend\\ble_client.py",
-      "source_location": "L131",
+      "source_location": "L136",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager_on_data",
       "_tgt": "state_set_disconnected",
@@ -1956,7 +2213,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend\\ble_client.py",
-      "source_location": "L136",
+      "source_location": "L141",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager_on_data",
       "_tgt": "logger_sessionlogger_start_session",
@@ -1968,7 +2225,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend\\ble_client.py",
-      "source_location": "L146",
+      "source_location": "L151",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager_on_data",
       "_tgt": "classifier_classify",
@@ -1980,7 +2237,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend\\ble_client.py",
-      "source_location": "L148",
+      "source_location": "L153",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager_on_data",
       "_tgt": "state_update_live",
@@ -1992,7 +2249,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend\\ble_client.py",
-      "source_location": "L150",
+      "source_location": "L155",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager_on_data",
       "_tgt": "logger_sessionlogger_record",
@@ -2075,7 +2332,127 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "backend\\ble_client.py",
-      "source_location": "L166",
+      "source_location": "L205",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager_scan_for",
+      "_tgt": "ble_client_dualblemanager_read_gatt_name",
+      "source": "ble_client_dualblemanager_read_gatt_name",
+      "target": "ble_client_dualblemanager_scan_for",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L159",
+      "weight": 1.0,
+      "_src": "ble_client_rationale_159",
+      "_tgt": "ble_client_dualblemanager_read_gatt_name",
+      "source": "ble_client_dualblemanager_read_gatt_name",
+      "target": "ble_client_rationale_159",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L165",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager_read_gatt_name",
+      "_tgt": "state_add_ble_log",
+      "source": "ble_client_dualblemanager_read_gatt_name",
+      "target": "state_add_ble_log"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L223",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager_manage",
+      "_tgt": "ble_client_dualblemanager_scan_for",
+      "source": "ble_client_dualblemanager_scan_for",
+      "target": "ble_client_dualblemanager_manage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L169",
+      "weight": 1.0,
+      "_src": "ble_client_rationale_169",
+      "_tgt": "ble_client_dualblemanager_scan_for",
+      "source": "ble_client_dualblemanager_scan_for",
+      "target": "ble_client_rationale_169",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager_scan_for",
+      "_tgt": "state_add_ble_log",
+      "source": "ble_client_dualblemanager_scan_for",
+      "target": "state_add_ble_log"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L271",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager_run",
+      "_tgt": "ble_client_dualblemanager_manage",
+      "source": "ble_client_dualblemanager_manage",
+      "target": "ble_client_dualblemanager_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L218",
+      "weight": 1.0,
+      "_src": "ble_client_rationale_218",
+      "_tgt": "ble_client_dualblemanager_manage",
+      "source": "ble_client_dualblemanager_manage",
+      "target": "ble_client_rationale_218",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L220",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager_manage",
+      "_tgt": "state_consume_retry",
+      "source": "ble_client_dualblemanager_manage",
+      "target": "state_consume_retry"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L226",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager_manage",
+      "_tgt": "state_add_ble_log",
+      "source": "ble_client_dualblemanager_manage",
+      "target": "state_add_ble_log"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L273",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager_run",
       "_tgt": "ble_client_dualblemanager_poll_zero",
@@ -2088,12 +2465,48 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "backend\\ble_client.py",
-      "source_location": "L155",
+      "source_location": "L241",
       "weight": 1.0,
       "_src": "ble_client_dualblemanager_poll_zero",
       "_tgt": "state_consume_zero_trigger",
       "source": "ble_client_dualblemanager_poll_zero",
       "target": "state_consume_zero_trigger"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L274",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager_run",
+      "_tgt": "ble_client_dualblemanager_log_heartbeat",
+      "source": "ble_client_dualblemanager_log_heartbeat",
+      "target": "ble_client_dualblemanager_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L249",
+      "weight": 1.0,
+      "_src": "ble_client_rationale_249",
+      "_tgt": "ble_client_dualblemanager_log_heartbeat",
+      "source": "ble_client_dualblemanager_log_heartbeat",
+      "target": "ble_client_rationale_249",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend\\ble_client.py",
+      "source_location": "L257",
+      "weight": 1.0,
+      "_src": "ble_client_dualblemanager_log_heartbeat",
+      "_tgt": "state_add_ble_log",
+      "source": "ble_client_dualblemanager_log_heartbeat",
+      "target": "state_add_ble_log"
     },
     {
       "relation": "calls",
@@ -2999,7 +3412,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\state.py",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_src": "backend_state_py",
       "_tgt": "state_state",
@@ -3011,7 +3424,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\state.py",
-      "source_location": "L25",
+      "source_location": "L31",
       "weight": 1.0,
       "_src": "backend_state_py",
       "_tgt": "state_get_state",
@@ -3023,7 +3436,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\state.py",
-      "source_location": "L38",
+      "source_location": "L46",
       "weight": 1.0,
       "_src": "backend_state_py",
       "_tgt": "state_get_session_state",
@@ -3035,7 +3448,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\state.py",
-      "source_location": "L49",
+      "source_location": "L57",
       "weight": 1.0,
       "_src": "backend_state_py",
       "_tgt": "state_update_live",
@@ -3047,7 +3460,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\state.py",
-      "source_location": "L63",
+      "source_location": "L71",
       "weight": 1.0,
       "_src": "backend_state_py",
       "_tgt": "state_update_session",
@@ -3059,7 +3472,19 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\state.py",
-      "source_location": "L74",
+      "source_location": "L82",
+      "weight": 1.0,
+      "_src": "backend_state_py",
+      "_tgt": "state_set_device_connected",
+      "source": "backend_state_py",
+      "target": "state_set_device_connected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\state.py",
+      "source_location": "L89",
       "weight": 1.0,
       "_src": "backend_state_py",
       "_tgt": "state_set_disconnected",
@@ -3071,7 +3496,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\state.py",
-      "source_location": "L80",
+      "source_location": "L95",
       "weight": 1.0,
       "_src": "backend_state_py",
       "_tgt": "state_request_zero",
@@ -3083,7 +3508,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\state.py",
-      "source_location": "L84",
+      "source_location": "L99",
       "weight": 1.0,
       "_src": "backend_state_py",
       "_tgt": "state_consume_zero_trigger",
@@ -3092,10 +3517,58 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\state.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_src": "backend_state_py",
+      "_tgt": "state_request_retry",
+      "source": "backend_state_py",
+      "target": "state_request_retry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\state.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "_src": "backend_state_py",
+      "_tgt": "state_consume_retry",
+      "source": "backend_state_py",
+      "target": "state_consume_retry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\state.py",
+      "source_location": "L123",
+      "weight": 1.0,
+      "_src": "backend_state_py",
+      "_tgt": "state_add_ble_log",
+      "source": "backend_state_py",
+      "target": "state_add_ble_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\state.py",
+      "source_location": "L129",
+      "weight": 1.0,
+      "_src": "backend_state_py",
+      "_tgt": "state_get_ble_log",
+      "source": "backend_state_py",
+      "target": "state_get_ble_log",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "backend\\state.py",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_src": "state_state",
       "_tgt": "state_state_init",
@@ -3230,6 +3703,18 @@
       "source_location": "L39",
       "weight": 1.0,
       "_src": "backend_static_app_js",
+      "_tgt": "app_updatedevices",
+      "source": "backend_static_app_js",
+      "target": "app_updatedevices",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\static\\app.js",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_src": "backend_static_app_js",
       "_tgt": "app_updatelive",
       "source": "backend_static_app_js",
       "target": "app_updatelive",
@@ -3239,7 +3724,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend\\static\\app.js",
-      "source_location": "L87",
+      "source_location": "L116",
       "weight": 1.0,
       "_src": "backend_static_app_js",
       "_tgt": "app_loadhistory",
@@ -3251,7 +3736,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "backend\\static\\app.js",
-      "source_location": "L76",
+      "source_location": "L105",
       "weight": 1.0,
       "_src": "app_updatelive",
       "_tgt": "app_formatduration",
@@ -3275,11 +3760,23 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "backend\\static\\app.js",
-      "source_location": "L67",
+      "source_location": "L96",
       "weight": 1.0,
       "_src": "app_updatelive",
       "_tgt": "app_angletopercent",
       "source": "app_angletopercent",
+      "target": "app_updatelive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "backend\\static\\app.js",
+      "source_location": "L85",
+      "weight": 1.0,
+      "_src": "app_updatelive",
+      "_tgt": "app_updatedevices",
+      "source": "app_updatedevices",
       "target": "app_updatelive",
       "confidence_score": 1.0
     },
@@ -3947,8 +4444,20 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": "Rules section",
+      "weight": 1.0,
+      "_src": "claudemd_graphify_rules",
+      "_tgt": "graph_report",
+      "source": "claudemd_graphify_rules",
+      "target": "graph_report"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_location": "Task 4 Step 3 imports",
       "weight": 1.0,
       "_src": "dual_plan_device_connection",
       "_tgt": "requirements_bleak",
@@ -3960,19 +4469,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "v2plan_ble_client_original",
-      "_tgt": "requirements_bleak",
-      "source": "requirements_bleak",
-      "target": "v2plan_ble_client_original"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "Task 6",
       "weight": 1.0,
       "_src": "v2plan_flask_api",
       "_tgt": "requirements_flask",
@@ -3984,151 +4481,151 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "Task 1",
       "weight": 1.0,
-      "_src": "v2plan_posturemax_v2",
+      "_src": "v2plan_overview",
       "_tgt": "requirements_pytest",
       "source": "requirements_pytest",
-      "target": "v2plan_posturemax_v2"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/hardware.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "hardware_posturemax_system",
-      "_tgt": "hardware_module_upper",
-      "source": "hardware_posturemax_system",
-      "target": "hardware_module_upper"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/hardware.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "hardware_posturemax_system",
-      "_tgt": "hardware_module_lower",
-      "source": "hardware_posturemax_system",
-      "target": "hardware_module_lower"
+      "target": "v2plan_overview"
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/hardware.md",
-      "source_location": null,
+      "source_location": "System Overview",
       "weight": 1.0,
-      "_src": "hardware_rationale_no_wires",
-      "_tgt": "hardware_posturemax_system",
-      "source": "hardware_posturemax_system",
-      "target": "hardware_rationale_no_wires"
+      "_src": "hardware_rationale_wireless",
+      "_tgt": "hardware_upper_module",
+      "source": "hardware_upper_module",
+      "target": "hardware_rationale_wireless"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/hardware.md",
-      "source_location": null,
+      "source_location": "System Overview table",
+      "weight": 1.0,
+      "_src": "hardware_upper_module",
+      "_tgt": "hardware_esp32c3",
+      "source": "hardware_upper_module",
+      "target": "hardware_esp32c3"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/hardware.md",
+      "source_location": "System Overview table",
+      "weight": 1.0,
+      "_src": "hardware_upper_module",
+      "_tgt": "hardware_mpu6050",
+      "source": "hardware_upper_module",
+      "target": "hardware_mpu6050"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/hardware.md",
+      "source_location": "BLE Identity table",
+      "weight": 1.0,
+      "_src": "hardware_ble_identity",
+      "_tgt": "hardware_upper_module",
+      "source": "hardware_upper_module",
+      "target": "hardware_ble_identity"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/hardware.md",
+      "source_location": "Known Hardware Failure Modes",
       "weight": 1.0,
       "_src": "hardware_failure_modes",
-      "_tgt": "hardware_posturemax_system",
-      "source": "hardware_posturemax_system",
+      "_tgt": "hardware_upper_module",
+      "source": "hardware_upper_module",
+      "target": "hardware_failure_modes"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/hardware.md",
+      "source_location": "System Overview",
+      "weight": 1.0,
+      "_src": "hardware_rationale_wireless",
+      "_tgt": "hardware_lower_module",
+      "source": "hardware_lower_module",
+      "target": "hardware_rationale_wireless"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/hardware.md",
+      "source_location": "System Overview table",
+      "weight": 1.0,
+      "_src": "hardware_lower_module",
+      "_tgt": "hardware_esp32c3",
+      "source": "hardware_lower_module",
+      "target": "hardware_esp32c3"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/hardware.md",
+      "source_location": "System Overview table",
+      "weight": 1.0,
+      "_src": "hardware_lower_module",
+      "_tgt": "hardware_mpu6050",
+      "source": "hardware_lower_module",
+      "target": "hardware_mpu6050"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/hardware.md",
+      "source_location": "BLE Identity table",
+      "weight": 1.0,
+      "_src": "hardware_ble_identity",
+      "_tgt": "hardware_lower_module",
+      "source": "hardware_lower_module",
+      "target": "hardware_ble_identity"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/hardware.md",
+      "source_location": "Known Hardware Failure Modes",
+      "weight": 1.0,
+      "_src": "hardware_failure_modes",
+      "_tgt": "hardware_lower_module",
+      "source": "hardware_lower_module",
       "target": "hardware_failure_modes"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "dual_plan_architecture_correction",
-      "_tgt": "hardware_posturemax_system",
-      "source": "hardware_posturemax_system",
-      "target": "dual_plan_architecture_correction"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "docs/hardware.md",
-      "source_location": null,
+      "source_location": "System Overview",
       "weight": 1.0,
-      "_src": "hardware_module_upper",
-      "_tgt": "hardware_esp32c3",
-      "source": "hardware_module_upper",
-      "target": "hardware_esp32c3"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/hardware.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "hardware_module_upper",
-      "_tgt": "hardware_mpu6050",
-      "source": "hardware_module_upper",
-      "target": "hardware_mpu6050"
+      "_src": "hardware_esp32c3",
+      "_tgt": "hardware_madgwick",
+      "source": "hardware_esp32c3",
+      "target": "hardware_madgwick"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/hardware.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "hardware_ble_identity",
-      "_tgt": "hardware_module_upper",
-      "source": "hardware_module_upper",
-      "target": "hardware_ble_identity"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/hardware.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "hardware_module_lower",
-      "_tgt": "hardware_esp32c3",
-      "source": "hardware_module_lower",
-      "target": "hardware_esp32c3"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/hardware.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "hardware_module_lower",
-      "_tgt": "hardware_mpu6050",
-      "source": "hardware_module_lower",
-      "target": "hardware_mpu6050"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/hardware.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "hardware_ble_identity",
-      "_tgt": "hardware_module_lower",
-      "source": "hardware_module_lower",
-      "target": "hardware_ble_identity"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/hardware.md",
-      "source_location": null,
+      "source_location": "Firmware Constraints",
       "weight": 1.0,
       "_src": "hardware_firmware_constraints",
       "_tgt": "hardware_madgwick",
@@ -4139,20 +4636,8 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "v2plan_firmware_original",
-      "_tgt": "hardware_madgwick",
-      "source": "hardware_madgwick",
-      "target": "v2plan_firmware_original"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_location": "Task 3",
       "weight": 1.0,
       "_src": "dual_plan_firmware_rewrite",
       "_tgt": "hardware_ble_identity",
@@ -4160,15 +4645,87 @@
       "target": "dual_plan_firmware_rewrite"
     },
     {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
+      "source_location": "Task 4",
+      "weight": 0.85,
+      "_src": "dual_plan_staleness_check",
+      "_tgt": "hardware_failure_modes",
+      "source": "hardware_failure_modes",
+      "target": "dual_plan_staleness_check"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
+      "source_location": "Task 3",
+      "weight": 0.85,
+      "_src": "dual_plan_firmware_rewrite",
+      "_tgt": "hardware_firmware_constraints",
+      "source": "hardware_firmware_constraints",
+      "target": "dual_plan_firmware_rewrite"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
+      "source_location": "Task 12",
+      "weight": 0.8,
+      "_src": "v2plan_firmware_original",
+      "_tgt": "hardware_firmware_constraints",
+      "source": "hardware_firmware_constraints",
+      "target": "v2plan_firmware_original"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_location": "Files Changed",
       "weight": 1.0,
-      "_src": "dual_plan_architecture_correction",
+      "_src": "dual_plan_overview",
+      "_tgt": "dual_plan_device_connection",
+      "source": "dual_plan_overview",
+      "target": "dual_plan_device_connection"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
+      "source_location": "Files Changed",
+      "weight": 1.0,
+      "_src": "dual_plan_overview",
+      "_tgt": "dual_plan_dual_ble_manager",
+      "source": "dual_plan_overview",
+      "target": "dual_plan_dual_ble_manager"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
+      "source_location": "Task 2",
+      "weight": 1.0,
+      "_src": "dual_plan_overview",
+      "_tgt": "dual_plan_config_update",
+      "source": "dual_plan_overview",
+      "target": "dual_plan_config_update"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
+      "source_location": "Task 3",
+      "weight": 1.0,
+      "_src": "dual_plan_overview",
       "_tgt": "dual_plan_firmware_rewrite",
-      "source": "dual_plan_architecture_correction",
+      "source": "dual_plan_overview",
       "target": "dual_plan_firmware_rewrite"
     },
     {
@@ -4176,43 +4733,79 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_location": "Task 4",
       "weight": 1.0,
-      "_src": "dual_plan_architecture_correction",
-      "_tgt": "dual_plan_config_update",
-      "source": "dual_plan_architecture_correction",
-      "target": "dual_plan_config_update"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
-      "weight": 0.9,
-      "_src": "dual_plan_architecture_correction",
-      "_tgt": "v2plan_posturemax_v2",
-      "source": "dual_plan_architecture_correction",
-      "target": "v2plan_posturemax_v2"
+      "_src": "dual_plan_overview",
+      "_tgt": "dual_plan_staleness_check",
+      "source": "dual_plan_overview",
+      "target": "dual_plan_staleness_check"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_location": "Task 5",
       "weight": 1.0,
-      "_src": "dual_plan_device_connection",
-      "_tgt": "dual_plan_dual_ble_manager",
-      "source": "dual_plan_device_connection",
-      "target": "dual_plan_dual_ble_manager"
+      "_src": "dual_plan_overview",
+      "_tgt": "dual_plan_main_update",
+      "source": "dual_plan_overview",
+      "target": "dual_plan_main_update"
     },
     {
-      "relation": "implements",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_location": "Tech Stack section",
+      "weight": 1.0,
+      "_src": "dual_plan_overview",
+      "_tgt": "v2plan_overview",
+      "source": "dual_plan_overview",
+      "target": "v2plan_overview"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
+      "source_location": "Files Changed",
+      "weight": 1.0,
+      "_src": "dual_plan_overview",
+      "_tgt": "v2plan_ble_client_original",
+      "source": "dual_plan_overview",
+      "target": "v2plan_ble_client_original"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "graphify-out/GRAPH_REPORT.md",
+      "source_location": "God Nodes",
+      "weight": 1.0,
+      "_src": "graph_report",
+      "_tgt": "dual_plan_device_connection",
+      "source": "dual_plan_device_connection",
+      "target": "graph_report"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
+      "source_location": "Architecture section",
+      "weight": 1.0,
+      "_src": "dual_plan_rationale_asyncio",
+      "_tgt": "dual_plan_dual_ble_manager",
+      "source": "dual_plan_dual_ble_manager",
+      "target": "dual_plan_rationale_asyncio"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
+      "source_location": "Task 4 Step 3",
       "weight": 1.0,
       "_src": "dual_plan_dual_ble_manager",
       "_tgt": "dual_plan_staleness_check",
@@ -4220,135 +4813,27 @@
       "target": "dual_plan_staleness_check"
     },
     {
-      "relation": "rationale_for",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_file": "graphify-out/GRAPH_REPORT.md",
+      "source_location": "God Nodes",
       "weight": 1.0,
-      "_src": "dual_plan_rationale_asyncio_gather",
+      "_src": "graph_report",
       "_tgt": "dual_plan_dual_ble_manager",
       "source": "dual_plan_dual_ble_manager",
-      "target": "dual_plan_rationale_asyncio_gather"
+      "target": "graph_report"
     },
     {
-      "relation": "calls",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
+      "source_location": "Files Changed",
       "weight": 1.0,
-      "_src": "dual_plan_dual_ble_manager",
-      "_tgt": "v2plan_classifier",
-      "source": "dual_plan_dual_ble_manager",
-      "target": "v2plan_classifier"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "dual_plan_dual_ble_manager",
-      "_tgt": "v2plan_session_logger",
-      "source": "dual_plan_dual_ble_manager",
-      "target": "v2plan_session_logger"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-dual-wireless-modules.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "dual_plan_dual_ble_manager",
-      "_tgt": "v2plan_state_module",
-      "source": "dual_plan_dual_ble_manager",
-      "target": "v2plan_state_module"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "v2plan_posturemax_v2",
-      "_tgt": "v2plan_classifier",
-      "source": "v2plan_posturemax_v2",
-      "target": "v2plan_classifier"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "v2plan_posturemax_v2",
-      "_tgt": "v2plan_db_layer",
-      "source": "v2plan_posturemax_v2",
-      "target": "v2plan_db_layer"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "v2plan_posturemax_v2",
-      "_tgt": "v2plan_session_logger",
-      "source": "v2plan_posturemax_v2",
-      "target": "v2plan_session_logger"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "v2plan_posturemax_v2",
-      "_tgt": "v2plan_flask_api",
-      "source": "v2plan_posturemax_v2",
-      "target": "v2plan_flask_api"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "v2plan_posturemax_v2",
-      "_tgt": "v2plan_dashboard_spa",
-      "source": "v2plan_posturemax_v2",
-      "target": "v2plan_dashboard_spa"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "v2plan_posturemax_v2",
-      "_tgt": "v2plan_ble_client_original",
-      "source": "v2plan_posturemax_v2",
-      "target": "v2plan_ble_client_original"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "v2plan_posturemax_v2",
+      "_src": "dual_plan_firmware_rewrite",
       "_tgt": "v2plan_firmware_original",
-      "source": "v2plan_posturemax_v2",
+      "source": "dual_plan_firmware_rewrite",
       "target": "v2plan_firmware_original"
     },
     {
@@ -4356,47 +4841,47 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "File Map",
       "weight": 1.0,
-      "_src": "v2plan_posturemax_v2",
-      "_tgt": "v2plan_state_module",
-      "source": "v2plan_posturemax_v2",
-      "target": "v2plan_state_module"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "v2plan_ble_client_original",
+      "_src": "v2plan_overview",
       "_tgt": "v2plan_classifier",
-      "source": "v2plan_classifier",
-      "target": "v2plan_ble_client_original"
+      "source": "v2plan_overview",
+      "target": "v2plan_classifier"
     },
     {
-      "relation": "calls",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "File Map",
       "weight": 1.0,
-      "_src": "v2plan_session_logger",
+      "_src": "v2plan_overview",
       "_tgt": "v2plan_db_layer",
-      "source": "v2plan_db_layer",
+      "source": "v2plan_overview",
+      "target": "v2plan_db_layer"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
+      "source_location": "File Map",
+      "weight": 1.0,
+      "_src": "v2plan_overview",
+      "_tgt": "v2plan_session_logger",
+      "source": "v2plan_overview",
       "target": "v2plan_session_logger"
     },
     {
-      "relation": "calls",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "File Map",
       "weight": 1.0,
-      "_src": "v2plan_flask_api",
-      "_tgt": "v2plan_db_layer",
-      "source": "v2plan_db_layer",
+      "_src": "v2plan_overview",
+      "_tgt": "v2plan_flask_api",
+      "source": "v2plan_overview",
       "target": "v2plan_flask_api"
     },
     {
@@ -4404,35 +4889,11 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "File Map",
       "weight": 1.0,
-      "_src": "v2plan_db_layer",
-      "_tgt": "v2plan_sqlite",
-      "source": "v2plan_db_layer",
-      "target": "v2plan_sqlite"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "v2plan_flask_api",
+      "_src": "v2plan_overview",
       "_tgt": "v2plan_state_module",
-      "source": "v2plan_flask_api",
-      "target": "v2plan_state_module"
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "v2plan_ble_client_original",
-      "_tgt": "v2plan_state_module",
-      "source": "v2plan_ble_client_original",
+      "source": "v2plan_overview",
       "target": "v2plan_state_module"
     },
     {
@@ -4440,21 +4901,69 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
-      "source_location": null,
+      "source_location": "File Map",
       "weight": 1.0,
-      "_src": "v2plan_dashboard_spa",
-      "_tgt": "v2plan_chartjs",
-      "source": "v2plan_dashboard_spa",
-      "target": "v2plan_chartjs"
+      "_src": "v2plan_overview",
+      "_tgt": "v2plan_ble_client_original",
+      "source": "v2plan_overview",
+      "target": "v2plan_ble_client_original"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
+      "source_location": "Task 9",
+      "weight": 1.0,
+      "_src": "v2plan_overview",
+      "_tgt": "v2plan_dashboard_html",
+      "source": "v2plan_overview",
+      "target": "v2plan_dashboard_html"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
+      "source_location": "Task 10",
+      "weight": 1.0,
+      "_src": "v2plan_overview",
+      "_tgt": "v2plan_dashboard_css",
+      "source": "v2plan_overview",
+      "target": "v2plan_dashboard_css"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
+      "source_location": "Task 11",
+      "weight": 1.0,
+      "_src": "v2plan_overview",
+      "_tgt": "v2plan_dashboard_js",
+      "source": "v2plan_overview",
+      "target": "v2plan_dashboard_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md",
+      "source_location": "Task 12",
+      "weight": 1.0,
+      "_src": "v2plan_overview",
+      "_tgt": "v2plan_firmware_original",
+      "source": "v2plan_overview",
+      "target": "v2plan_firmware_original"
     }
   ],
   "hyperedges": [
     {
-      "id": "dual_module_system",
+      "id": "dual_independent_wireless_module_system",
       "label": "Dual Independent Wireless Module System",
       "nodes": [
-        "hardware_module_upper",
-        "hardware_module_lower",
+        "hardware_upper_module",
+        "hardware_lower_module",
         "hardware_esp32c3",
         "hardware_mpu6050",
         "hardware_madgwick"
@@ -4465,7 +4974,7 @@
       "source_file": "docs/hardware.md"
     },
     {
-      "id": "backend_stack",
+      "id": "posturemax_v2_python_backend_stack",
       "label": "PostureMax V2 Python Backend Stack",
       "nodes": [
         "v2plan_classifier",
@@ -4484,7 +4993,7 @@
       "source_file": "docs/superpowers/plans/2026-04-25-posturemax-v2.md"
     },
     {
-      "id": "dual_ble_refactor",
+      "id": "dual_ble_architecture_refactor",
       "label": "Dual BLE Architecture Refactor",
       "nodes": [
         "dual_plan_device_connection",

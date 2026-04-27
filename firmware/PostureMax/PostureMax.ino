@@ -133,7 +133,7 @@ void setup() {
 
   BLEAdvertising* pAdv = BLEDevice::getAdvertising();
   pAdv->addServiceUUID(SERVICE_UUID);
-  pAdv->setScanResponse(false);
+  pAdv->setScanResponse(true);   // full device name goes in scan response packet
   pAdv->setMinPreferred(0x06);
   BLEDevice::startAdvertising();
 

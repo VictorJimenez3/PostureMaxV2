@@ -37,4 +37,20 @@ def create_app(db_path: str = DB_PATH) -> Flask:
         state.request_zero()
         return jsonify({"ok": True})
 
+    @app.get("/api/devices")
+    def api_devices():
+        s = state.get_state()
+        return jsonify({
+            "upper": s["upper_connected"],
+            "lower": s["lower_connected"],
+            "log":   state.get_ble_log(),
+        })
+
+    @app.post("/api/devices/<role>/retry")
+    def api_device_retry(role):
+        if role not in ("upper", "lower"):
+            return jsonify({"error": "invalid role"}), 400
+        state.request_retry(role)
+        return jsonify({"ok": True})
+
     return app

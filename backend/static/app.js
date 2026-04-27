@@ -6,6 +6,7 @@ const POSTURE_LABELS = {
   hyperextended:      'HYPEREXTENDED',
   leaning_right:      'LEANING RIGHT',
   leaning_left:       'LEANING LEFT',
+  calibrating:        'CALIBRATING',
   unknown:            '—',
 };
 
@@ -15,6 +16,7 @@ const STATE_CLASS = {
   hyperextended:     'state-warning',
   leaning_right:     'state-warning',
   leaning_left:      'state-warning',
+  calibrating:       'state-calibrating',
   unknown:           'state-unknown',
 };
 
@@ -36,32 +38,65 @@ function angleToPercent(deg) {
   return ((clamp(deg, -30, 30) + 30) / 60) * 100;
 }
 
+function updateDevices(devices) {
+  const roles = ['upper', 'lower'];
+  let connectedCount = 0;
+
+  roles.forEach(role => {
+    const isConnected = devices[role];
+    if (isConnected) connectedCount++;
+
+    const dot    = document.getElementById(`dot-${role}`);
+    const status = document.getElementById(`status-${role}`);
+
+    dot.className = 'device-dot ' + (isConnected ? 'connected' : 'searching');
+    status.textContent = isConnected ? 'Connected' : 'Searching…';
+  });
+
+  // Update banner
+  const banner = document.getElementById('connection-banner');
+  if (connectedCount === 2) {
+    banner.textContent = '2 / 2 Connected';
+    banner.className   = 'connection-banner connected';
+  } else if (connectedCount === 1) {
+    banner.textContent = '1 / 2 Connected';
+    banner.className   = 'connection-banner partial';
+  } else {
+    banner.textContent = 'Searching for sensors…';
+    banner.className   = 'connection-banner disconnected';
+  }
+
+  // Render log (newest first — flex-direction: column-reverse handles display)
+  const logEl = document.getElementById('ble-log');
+  logEl.innerHTML = (devices.log ?? []).map(entry =>
+    `<span class="log-line"><span class="log-time">${entry.t}</span>${entry.msg}</span>`
+  ).join('');
+}
+
 async function updateLive() {
   try {
-    const [statusRes, sessionRes] = await Promise.all([
+    const [statusRes, sessionRes, devicesRes] = await Promise.all([
       fetch('/api/status'),
       fetch('/api/session/current'),
+      fetch('/api/devices'),
     ]);
     const status  = await statusRes.json();
     const session = await sessionRes.json();
+    const devices = await devicesRes.json();
 
-    // Connection banner
-    const banner = document.getElementById('connection-banner');
-    if (status.connected) {
-      banner.textContent = 'Connected';
-      banner.className   = 'connection-banner connected';
-    } else {
-      banner.textContent = 'Disconnected';
-      banner.className   = 'connection-banner disconnected';
-    }
+    updateDevices(devices);
 
     // Hero card state class
     const heroCard  = document.getElementById('hero-card');
     const heroLabel = document.getElementById('hero-label');
+    const heroSub   = document.getElementById('hero-sub');
     const prevCls   = [...heroCard.classList].find(c => c.startsWith('state-'));
     if (prevCls) heroCard.classList.remove(prevCls);
     heroCard.classList.add(STATE_CLASS[status.posture_state] ?? 'state-unknown');
     heroLabel.textContent = POSTURE_LABELS[status.posture_state] ?? '—';
+    heroSub.textContent = status.posture_state === 'calibrating'
+      ? 'Sit up straight — calibrating...'
+      : 'Current Posture';
 
     // Angle gauges
     const pitchPct = angleToPercent(status.delta_pitch ?? 0);
@@ -161,6 +196,13 @@ document.querySelectorAll('.nav-item').forEach(btn => {
 // ── Re-zero button ────────────────────────────────────────────────────────
 document.getElementById('btn-zero').addEventListener('click', async () => {
   await fetch('/api/zero', { method: 'POST' });
+});
+
+// ── Retry buttons ─────────────────────────────────────────────────────────
+['upper', 'lower'].forEach(role => {
+  document.getElementById(`btn-retry-${role}`).addEventListener('click', async () => {
+    await fetch(`/api/devices/${role}/retry`, { method: 'POST' });
+  });
 });
 
 // ── Start polling ─────────────────────────────────────────────────────────
